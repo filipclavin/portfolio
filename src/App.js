@@ -26,7 +26,7 @@ function App() {
   }, [location])
 
   useEffect(() => {
-    fetch(`https://api.unsplash.com/photos/random?query=${location}&client_id=${UNSPLASH_KEY}`)
+    fetch(`https://api.unsplash.com/photos/random?query=${location}&featured&orientation=portrait&client_id=${UNSPLASH_KEY}`)
       .then(res => {
         if (!res.ok) {
           throw Error(res.statusText)
