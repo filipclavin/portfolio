@@ -3,17 +3,18 @@ import About from "./About";
 import Contact from "./Contact";
 import Home from "./Home";
 import Navbar from "./Navbar";
-import { API_KEY } from "./data";
+import { UNSPLASH_KEY, WEATHER_KEY } from "./data";
 import { useEffect, useState } from "react";
 
 
 function App() {
 
-  const [city, setCity] = useState('stockholm')
+  const [location, setLocation] = useState('stockholm')
   const [weatherData, setWeatherData] = useState()
+  const [weatherBackground, setWeatherBackgound] = useState()
 
   useEffect(() => {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${WEATHER_KEY}`)
       .then(res => {
         if (!res.ok) {
           throw Error(res.statusText)
@@ -22,11 +23,23 @@ function App() {
       })
       .then(data => setWeatherData(data))
       .catch(err => console.log(err))
-  }, [city])
+  }, [location])
+
+  useEffect(() => {
+    fetch(`https://api.unsplash.com/photos/random?query=${location}&client_id=${UNSPLASH_KEY}`)
+      .then(res => {
+        if (!res.ok) {
+          throw Error(res.statusText)
+        }
+        return res.json()
+      })
+      .then(data => setWeatherBackgound(data))
+      .catch(err => console.log(err))
+  }, [location])
 
   function weatherSubmit(e) {
     e.preventDefault()
-    setCity(e.target.firstChild.value)
+    setLocation(e.target.firstChild.value)
     e.target.firstChild.value = ''
   }
 
@@ -40,7 +53,7 @@ function App() {
       <main>
         <Switch>
           <Route exact path="/">
-            <Home weatherData={weatherData} weatherSubmit={weatherSubmit} />
+            <Home weatherData={weatherData} weatherSubmit={weatherSubmit} weatherBackground={weatherBackground} />
           </Route>
           <Route path="/about">
             <About />
