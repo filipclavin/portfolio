@@ -12,6 +12,7 @@ function App() {
   const [location, setLocation] = useState('stockholm')
   const [weatherData, setWeatherData] = useState()
   const [weatherBackground, setWeatherBackgound] = useState()
+  const [iconURL, setIconURL] = useState()
 
   useEffect(() => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${WEATHER_KEY}`)
@@ -21,11 +22,12 @@ function App() {
         }
         return res.json()
       })
-      .then(data => setWeatherData(data))
+      .then(data => {
+        setWeatherData(data)
+        setIconURL(`http://openweathermap.org/img/w/${data.weather[0].icon}.png`)
+      })
       .catch(err => console.log(err))
-  }, [location])
 
-  useEffect(() => {
     fetch(`https://api.unsplash.com/photos/random?query=${location}&featured&orientation=portrait&client_id=${UNSPLASH_KEY}`)
       .then(res => {
         if (!res.ok) {
@@ -35,6 +37,7 @@ function App() {
       })
       .then(data => setWeatherBackgound(data))
       .catch(err => console.log(err))
+
   }, [location])
 
   function weatherSubmit(e) {
@@ -53,7 +56,7 @@ function App() {
       <main>
         <Switch>
           <Route exact path="/">
-            <Home weatherData={weatherData} weatherSubmit={weatherSubmit} weatherBackground={weatherBackground} />
+            <Home weatherData={weatherData} iconURL={iconURL} weatherSubmit={weatherSubmit} weatherBackground={weatherBackground} />
           </Route>
           <Route path="/about">
             <About />
