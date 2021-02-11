@@ -15,7 +15,7 @@ function App() {
   const [iconURL, setIconURL] = useState()
 
   useEffect(() => {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${WEATHER_KEY}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${WEATHER_KEY}`)
       .then(res => {
         if (!res.ok) {
           throw Error(res.statusText)
