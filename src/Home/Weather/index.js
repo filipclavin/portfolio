@@ -5,14 +5,17 @@ background: ${props => props.weatherBackground ? `url(${props.weatherBackground.
 background-size: 400px 500px;
 width: 400px;
 height: 500px;
+flex-shrink: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
 clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 color: rgb(235, 235, 235);
 & > form {
     text-align: center;
     position: relative;
-    top 125px;
     width: fit-content;
-    margin: 0 auto;
     padding 30px;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;

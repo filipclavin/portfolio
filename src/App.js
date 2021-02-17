@@ -5,7 +5,13 @@ import Home from "./Home";
 import Navbar from "./Navbar";
 import { UNSPLASH_KEY, WEATHER_KEY } from "./data";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 
+const StyledMain = styled.main`
+& > h1 {
+  margin-left: 40px;
+}
+`
 
 function App() {
 
@@ -49,11 +55,10 @@ function App() {
   return (
     <Router>
       <header>
-        <h1>Filip Clavin</h1>
         <Navbar />
       </header>
 
-      <main>
+      <StyledMain>
         <Switch>
           <Route exact path="/">
             <Home weatherData={weatherData} iconURL={iconURL} weatherSubmit={weatherSubmit} weatherBackground={weatherBackground} />
@@ -65,7 +70,7 @@ function App() {
             <Contact />
           </Route>
         </Switch>
-      </main>
+      </StyledMain>
     </Router>
   );
 }
