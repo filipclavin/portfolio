@@ -5,11 +5,49 @@ import Home from "./Home";
 import Navbar from "./Navbar";
 import { UNSPLASH_KEY, WEATHER_KEY } from "./data";
 import { useEffect, useState } from "react";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+import { Reset } from 'styled-reset';
+
+const GlobalStyle = createGlobalStyle`
+  h1, h2, p {
+    font-family: 'Playfair Display', serif;
+  }
+
+  h3, h4, li {
+    font-family: 'Work Sans', sans-serif;
+  }
+
+  h1 {
+    font-size: 50px;
+    font-weight: 500;
+  }
+
+  h2 {
+    font-size: 45px;
+  }
+
+  h3 {
+    font-size: 35px;
+  }
+  
+  h4 {
+    font-size: 25px;
+  }
+`
 
 const StyledMain = styled.main`
+& > h2 {
+  margin-left: 80px;
+  margin-top: 20px;
+}
+`
+
+const StyledHeader = styled.header`
+background: black;
 & > h1 {
+  color: white;
   margin-left: 40px;
+  line-height: 80px;
 }
 `
 
@@ -54,9 +92,13 @@ function App() {
 
   return (
     <Router>
-      <header>
+      <Reset />
+      <GlobalStyle />
+
+      <StyledHeader>
         <Navbar />
-      </header>
+        <h1>Filip Clavin</h1>
+      </StyledHeader>
 
       <StyledMain>
         <Switch>

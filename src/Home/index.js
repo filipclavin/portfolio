@@ -16,12 +16,13 @@ flex-basis: 600px;
 function Home(props) {
     return (
         <>
-            <h1>Home</h1>
+            <h2>Home</h2>
             <HomeContent>
                 <Introduction>
-                    <h1>Hello, there! I'm Filip.</h1>
-                    <h2>Welcome to my portfolio.</h2>
-                    <p>I like working on creative solutions to problems with web-applications. Like this weather widget over to my right.</p>
+                    <h3>Hello, there! I'm Filip.</h3>
+                    <h4>Welcome to my portfolio.</h4>
+                    <br />
+                    <p>I like working on creative solutions with web-applications. Like this weather widget over to my right.</p>
                 </Introduction>
                 <Weather weatherData={props.weatherData} iconURL={props.iconURL} weatherSubmit={props.weatherSubmit} weatherBackground={props.weatherBackground} />
 

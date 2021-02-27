@@ -40,10 +40,10 @@ function Weather(props) {
             <form onSubmit={props.weatherSubmit}>
                 <input type="text" placeholder="Enter location" /> <br />
                 <button type="submit">Get weather</button>
-                {props.weatherData ? <h2>{props.weatherData.name}</h2> : null}
+                {props.weatherData ? <h3>{props.weatherData.name}</h3> : null}
                 <div>
                     {props.weatherData ? <img src={props.iconURL} alt="" /> : null}
-                    {props.weatherData ? <h3>{props.weatherData.main.temp} &deg;C</h3> : null}
+                    {props.weatherData ? <h4>{props.weatherData.main.temp} &deg;C</h4> : null}
                 </div>
             </form>
         </WeatherWidget>
