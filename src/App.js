@@ -51,6 +51,17 @@ background: black;
 }
 `
 
+const StyledFooter = styled.footer`
+display: flex;
+justify-content: flex-end;
+background: black;
+padding: 19px;
+& img {
+  width: 64px;
+  height: 64px;
+}
+`
+
 function App() {
 
   const [location, setLocation] = useState('stockholm')
@@ -94,7 +105,6 @@ function App() {
     <Router>
       <Reset />
       <GlobalStyle />
-
       <StyledHeader>
         <Navbar />
         <h1>Filip Clavin</h1>
@@ -113,6 +123,11 @@ function App() {
           </Route>
         </Switch>
       </StyledMain>
+
+      <StyledFooter>
+        <img src={require('./socials/github.png').default} alt="github" />
+        <img src={require('./socials/linkedin.png').default} alt="linkedin" />
+      </StyledFooter>
     </Router>
   );
 }
