@@ -31,7 +31,7 @@ color: #aee8ff;
 function Home(props) {
     return (
         <>
-            <h1>Home</h1>
+            <h2>Home</h2>
             <HomeContent>
                 <Introduction>
                     <h1>Hello there! I'm Filip.</h1>
