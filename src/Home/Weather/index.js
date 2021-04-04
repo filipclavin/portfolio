@@ -16,7 +16,7 @@ color: rgb(235, 235, 235);
     text-align: center;
     position: relative;
     width: fit-content;
-    padding 30px;
+    padding: 30px;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
