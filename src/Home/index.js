@@ -18,10 +18,10 @@ align-self: flex-start;
 color: #aee8ff;
 & > h1 {
     font-size: 60px;
-    line-height: 0;
 }
 & > h2 {
     font-size: 40px;
+    line-height: 8rem;
 }
 & > p {
     font-size: 20px;

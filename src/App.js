@@ -51,11 +51,18 @@ background: black;
 }
 `
 
-const StyledFooter = styled.footer`
+const StyledFlexContainer = styled.div`
 display: flex;
-justify-content: flex-end;
-background: black;
-padding: 19px;
+flex-direction: row;
+box-sizing: border-box;
+`
+
+const StyledSocials = styled.div`
+display: flex;
+justify-self: flex-end;
+padding: 20px;
+box-sizing: border-box;
+height: 0px;
 & img {
   width: 64px;
   height: 64px;
@@ -106,8 +113,17 @@ function App() {
       <Reset />
       <GlobalStyle />
       <StyledHeader>
-        <Navbar />
+
+        <StyledFlexContainer>
+          <Navbar />
+          <StyledSocials>
+            <img src={require('./socials/github.png').default} alt="github" />
+            <img src={require('./socials/linkedin.png').default} alt="linkedin" />
+          </StyledSocials>
+        </StyledFlexContainer>
+
         <h1>Filip Clavin</h1>
+
       </StyledHeader>
 
       <StyledMain>
@@ -123,11 +139,6 @@ function App() {
           </Route>
         </Switch>
       </StyledMain>
-
-      <StyledFooter>
-        <img src={require('./socials/github.png').default} alt="github" />
-        <img src={require('./socials/linkedin.png').default} alt="linkedin" />
-      </StyledFooter>
     </Router>
   );
 }

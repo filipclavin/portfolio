@@ -4,6 +4,7 @@ import styled from "styled-components";
 const StyledNav = styled.ul`
 list-style: none;
 margin-left: 32px;
+margin-top: 5px;
 `
 
 const StyledLi = styled.li`
@@ -11,6 +12,7 @@ display: inline-block;
 margin: 3px;
 background: black;
 transition: all 0.4s ease-out;
+padding: 5px 0;
 
 & > * {
     line-height: 25px;
