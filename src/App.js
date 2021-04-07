@@ -9,36 +9,34 @@ import styled, { createGlobalStyle } from "styled-components";
 import { Reset } from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
-  h1, h2, p {
-    font-family: 'Playfair Display', serif;
-  }
+body {
+  display: flex;
+  flex-direction: column;
+}
 
-  h3, h4, li {
-    font-family: 'Work Sans', sans-serif;
-  }
+h1, h2, p {
+  font-family: 'Playfair Display', serif;
+}
 
-  h1 {
-    font-size: 50px;
-    font-weight: 500;
-  }
+h3, h4, li, input, button {
+  font-family: 'Work Sans', sans-serif;
+}
 
-  h2 {
-    font-size: 45px;
-  }
+h1 {
+  font-size: 50px;
+  font-weight: 500;
+}
 
-  h3 {
-    font-size: 35px;
-  }
-  
-  h4 {
-    font-size: 25px;
-  }
-`
+h2 {
+  font-size: 45px;
+}
 
-const StyledMain = styled.main`
-& > h2 {
-  margin-left: 80px;
-  margin-top: 20px;
+h3 {
+  font-size: 35px;
+}
+
+h4 {
+  font-size: 25px;
 }
 `
 
@@ -51,21 +49,28 @@ background: black;
 }
 `
 
+const StyledMain = styled.main`
+margin: 50px 0;
+& > h2 {
+  margin-left: 80px;
+  margin-top: 20px;
+}
+`
+
 const StyledFlexContainer = styled.div`
 display: flex;
+justify-content: space-between;
 flex-direction: row;
 box-sizing: border-box;
 `
 
 const StyledSocials = styled.div`
-display: flex;
-justify-self: flex-end;
-padding: 20px;
 box-sizing: border-box;
 height: 0px;
+padding: 5px 5px 0 0;
 & img {
-  width: 64px;
-  height: 64px;
+  padding: 5px;
+  width: 50px;
 }
 `
 
@@ -117,8 +122,8 @@ function App() {
         <StyledFlexContainer>
           <Navbar />
           <StyledSocials>
-            <img src={require('./socials/github.png').default} alt="github" />
-            <img src={require('./socials/linkedin.png').default} alt="linkedin" />
+            <a href="https://github.com/filipclavin"><img src={require('./socials/github.png').default} alt="github" /></a>
+            <a href="https://www.linkedin.com/in/filip-clavin-026354147/"><img src={require('./socials/linkedin.png').default} alt="linkedin" /></a>
           </StyledSocials>
         </StyledFlexContainer>
 
