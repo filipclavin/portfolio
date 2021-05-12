@@ -1,12 +1,15 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import About from "./About";
-import Contact from "./Contact";
-import Home from "./Home";
-import Navbar from "./Navbar";
-import { UNSPLASH_KEY, WEATHER_KEY } from "./data";
-import { useEffect, useState } from "react";
-import styled, { createGlobalStyle } from "styled-components";
-import { Reset } from 'styled-reset';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import About from "./About"
+import Contact from "./Contact"
+import Home from "./Home"
+import Navbar from "./Navbar"
+import { UNSPLASH_KEY, WEATHER_KEY } from "./data"
+import { useEffect, useState } from "react"
+import styled, { createGlobalStyle } from "styled-components"
+import { Reset } from 'styled-reset'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faGithubSquare, faLinkedin } from "@fortawesome/free-brands-svg-icons"
+
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -68,9 +71,8 @@ const StyledSocials = styled.div`
 box-sizing: border-box;
 height: 0px;
 padding: 5px 5px 0 0;
-& img {
-  padding: 5px;
-  width: 50px;
+& a {
+  margin: 0 12px;
 }
 `
 
@@ -122,8 +124,8 @@ function App() {
         <StyledFlexContainer>
           <Navbar />
           <StyledSocials>
-            <a href="https://github.com/filipclavin"><img src={require('./socials/github.png').default} alt="github" /></a>
-            <a href="https://www.linkedin.com/in/filip-clavin-026354147/"><img src={require('./socials/linkedin.png').default} alt="linkedin" /></a>
+            <a href="https://github.com/filipclavin"><FontAwesomeIcon icon={faGithubSquare} size="4x" color="#FFFFFF" /></a>
+            <a href="https://www.linkedin.com/in/filip-clavin-026354147/"><FontAwesomeIcon icon={faLinkedin} size="4x" color="#0077B5" /></a>
           </StyledSocials>
         </StyledFlexContainer>
 

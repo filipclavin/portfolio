@@ -22,7 +22,7 @@ color: rgb(235, 235, 235);
     position: relative;
     width: 100%;
     padding: 30px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.55);
     display: flex;
     flex-direction: column;
     align-items: center;

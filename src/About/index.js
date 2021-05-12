@@ -1,6 +1,7 @@
 import { faHtml5, faCss3, faJsSquare, faReact, faNodeJs, } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import background from "../img/aboutBg.jpg"
+import pfp from "../img/pfp.jpg"
 import styled from "styled-components";
 
 const AboutContent = styled.article`
@@ -18,7 +19,7 @@ margin: 0 auto;
 border: solid 20px black;
 padding: 10vh 10vw;
 
-& h1, h2, p {
+& h1, h2 {
     text-align: center
 }
 
@@ -28,6 +29,16 @@ padding: 10vh 10vw;
 
 & > * {
     padding: 20px 0;
+}
+
+& .aboutText {
+    width: 70%;
+    & img {
+        height: 100px;
+        border-radius: 100%;
+        margin-right: 10px;
+        float: left;
+    }
 }
 `
 
@@ -48,8 +59,11 @@ function About() {
     return (
         <AboutContent>
             <h1>About me</h1>
-            <p>My name is Filip Clavin. I'm a {age} year old front-end development student, currently studying att <a href="https://kyh.se/">KYH</a> in Stockholm. I highly enjoy programming in JavaScript, but am also quite capable in HTML and CSS.
-            Before my formal studies I taught myself some web development with Codecademy in hopes to make a career change, and I quickly found it both fun and fulfilling!</p>
+            <div className="aboutText">
+                <img src={pfp} alt="A picture of me" />
+                <p>My name is Filip Clavin. I'm a {age} year old front-end development student, currently studying att <a href="https://kyh.se/">KYH</a> in Stockholm. I highly enjoy programming in JavaScript, but am also quite capable in HTML and CSS.
+                Before my formal studies I taught myself some web development with Codecademy in hopes to make a career change, and I quickly found it both fun and fulfilling!</p>
+            </div>
             <h2>Technologies I am familiar with:</h2>
             <Techs>
                 <FontAwesomeIcon icon={faHtml5} size="7x" color="#E44D26" title="HTML" />

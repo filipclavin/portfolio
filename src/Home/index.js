@@ -7,7 +7,7 @@ display: flex;
 flex-wrap: wrap;
 align-items: center;
 justify-content: center;
-padding: 10vh 1vw;
+padding: 9vh 1vw;
 background-color: rgba(28, 0, 122, 0.5);
 width: 65%;
 min-width: 320px;
