@@ -23,14 +23,15 @@ flex-basis: 600px;
 color: #aee8ff;
 & > h1 {
     font-size: 60px;
-    line-height: 0.5;
 }
 & > h2 {
     font-size: 40px;
-    line-height: 8rem;
 }
 & > p {
     font-size: 20px;
+}
+& > * {
+    padding: 20px 0;
 }
 `
 
@@ -61,7 +62,6 @@ function Home(props) {
         <HomeContent>
             <Introduction>
                 <h1>Hello there! I'm Filip.</h1>
-                <br />
                 <br />
                 <h2>Welcome to my portfolio.</h2>
                 <p>I like working on creative technical solutions to problems with web-applications. Like this weather widget {width > 1539 ? 'over to my right' : 'below me'}. It both collects weather data from OpenWeatherMap and sets the background picture for the widget from Unsplash based on the location you enter.</p>

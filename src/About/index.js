@@ -10,6 +10,7 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 background-image: url(${background});
+background-color: whitesmoke;
 background-position: center;
 background-size: cover;
 background-repeat: no-repeat;
@@ -60,7 +61,7 @@ function About() {
         <AboutContent>
             <h1>About me</h1>
             <div className="aboutText">
-                <img src={pfp} alt="A picture of me" />
+                <img src={pfp} alt="Me" />
                 <p>My name is Filip Clavin. I'm a {age} year old front-end development student, currently studying att <a href="https://kyh.se/">KYH</a> in Stockholm. I highly enjoy programming in JavaScript, but am also quite capable in HTML and CSS.
                 Before my formal studies I taught myself some web development with Codecademy in hopes to make a career change, and I quickly found it both fun and fulfilling!</p>
             </div>

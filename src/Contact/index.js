@@ -10,6 +10,7 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 background-image: url(${contactBg});
+background-color: whitesmoke;
 background-position: center;
 background-size: cover;
 background-repeat: no-repeat;
