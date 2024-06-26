@@ -4,14 +4,19 @@ import { OrbitControls } from "@react-three/drei";
 import SkyBox from "./components/SkyBox";
 import Sun from "./components/Sun";
 
-import { BLOOM_LAYER } from "@/constants";
+interface SolarSystemProps {
+  setIsLoaded: (isLoaded: boolean) => void;
+}
 
-const SolarSystem = () => {
+const SolarSystem = ({ setIsLoaded }: SolarSystemProps) => {
   const { camera } = useThree();
 
   useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
+  useEffect(() => {
     camera.position.set(0, 0, 10);
-    camera.layers.enable(BLOOM_LAYER);
   }, [camera]);
 
   return (
