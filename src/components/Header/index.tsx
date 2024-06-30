@@ -1,11 +1,7 @@
-
+import { HeaderContainer } from "./style";
 
 const Header = () => {
-  return (
-    <div>
-      
-    </div>
-  );
-}
+  return <HeaderContainer></HeaderContainer>;
+};
 
 export default Header;

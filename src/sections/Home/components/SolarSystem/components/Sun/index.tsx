@@ -1,5 +1,11 @@
 import { ShapeProps, Sphere } from "@react-three/drei";
-import { Mesh, PointLight, ShaderMaterial, SphereGeometry } from "three";
+import {
+  Layers,
+  Mesh,
+  PointLight,
+  ShaderMaterial,
+  SphereGeometry,
+} from "three";
 import vertexShader from "./shaders/vertex";
 import fragmentShader from "./shaders/fragment";
 import { useFrame } from "@react-three/fiber";
@@ -41,6 +47,7 @@ const Sun = (props: ShapeProps<typeof SphereGeometry>) => {
         ref={pointLightRef}
         position={[0, 0, 0]}
         intensity={100}
+        layers={new Layers()}
         color={"#fff"}
       />
       <EffectComposer>

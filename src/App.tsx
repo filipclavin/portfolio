@@ -1,37 +1,26 @@
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, createContext, useState } from "react";
 import GlobalStyle from "./GobalStyle";
 import Header from "./components/Header";
-import { Canvas } from "@react-three/fiber";
-import SolarSystem from "./sections/SolarSystem";
+import Home from "./sections/Home";
 import Footer from "./components/Footer";
-import Fallback from "./sections/Fallback";
+import Welcome from "./sections/Welcome";
 
-const transitionTimeMs = 500;
+export const GlobalContext = createContext({
+  isLoaded: false,
+  setIsLoaded: (_value: boolean) => {},
+});
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [showFallback, setShowFallback] = useState(true);
-
-  useEffect(() => {
-    if (isLoaded) {
-      setTimeout(() => {
-        setShowFallback(false);
-      }, transitionTimeMs);
-    }
-  }, [isLoaded]);
 
   return (
-    <>
+    <GlobalContext.Provider value={{ isLoaded, setIsLoaded }}>
       <GlobalStyle />
+      <Welcome loaded={isLoaded} />
+      <Home />
       <Header />
-      {true && <Fallback transitionTimeMs={transitionTimeMs} />}
-      <Suspense fallback={null}>
-        <Canvas>
-          <SolarSystem setIsLoaded={setIsLoaded} />
-        </Canvas>
-      </Suspense>
       <Footer />
-    </>
+    </GlobalContext.Provider>
   );
 }
 
