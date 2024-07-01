@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { FallbackContainer, Logo } from "./style";
+import { Container, Logo, Spinner } from "./style";
+import Typewriter from "@/components/Typewriter";
 
 interface FallbackProps {
   loaded: boolean;
@@ -18,15 +19,52 @@ const Welcome = ({ loaded }: FallbackProps) => {
   }, [loaded, logoLoaded]);
 
   return (
-    <FallbackContainer>
+    <Container>
+      <h1 className="introduction">
+        <Typewriter
+          texts={[
+            `Hi, I'm Filip Clavin.
+            I'm a <em>game developer</em>.`,
+            `Hi, I'm Filip Clavin.
+            I work with <em>Unreal Engine</em>.`,
+            `Hi, I'm Filip Clavin.
+            I work with <em>Unity</em>.`,
+            `Hi, I'm Filip Clavin.
+            I specialize in <em>netcode</em>.`,
+            `Hi, I'm Filip Clavin.
+            I specialize in <em>tools programming</em>.`,
+            `Hi, I'm Filip Clavin.
+            I love <em>shaders</em>.`,
+            `Hi, I'm Filip Clavin.
+            I like to <em>learn</em> new things.`,
+            `Hi, I'm Filip Clavin.
+            I like working with <em>others</em>.`,
+            `Hi, I'm Filip Clavin.
+            I like to <em>solve</em> problems.`,
+            `Hi, I'm Filip Clavin.
+            I'm a <em>game developer</em>.`,
+          ]}
+          msBetweenChars={50}
+          msBetweenTexts={2000}
+        />
+      </h1>
+      {logoState == "start" && <Spinner />}
       <Logo
-        src="/assets/svg/Logo.svg"
+        src="/svg/Logo.svg"
         className={logoState}
         onLoad={() => {
           setLogoLoaded(true);
         }}
+        alt="Logo"
       />
-    </FallbackContainer>
+      {logoState != "start" && (
+        <p className="hint">
+          &uarr;
+          <br />
+          Start exploring
+        </p>
+      )}
+    </Container>
   );
 };
 

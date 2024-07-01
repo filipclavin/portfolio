@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const HeaderContainer = styled.header`
+export const Container = styled.header`
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
-  padding: 10px;
+  height: 10vh;
+  padding: 1vh 1vw;
   box-sizing: border-box;
   color: white;
   display: flex;

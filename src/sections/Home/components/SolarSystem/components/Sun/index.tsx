@@ -10,7 +10,6 @@ import vertexShader from "./shaders/vertex";
 import fragmentShader from "./shaders/fragment";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
-import { EffectComposer, SelectiveBloom } from "@react-three/postprocessing";
 
 const material = new ShaderMaterial({
   uniforms: {
@@ -50,15 +49,6 @@ const Sun = (props: ShapeProps<typeof SphereGeometry>) => {
         layers={new Layers()}
         color={"#fff"}
       />
-      <EffectComposer>
-        <SelectiveBloom
-          lights={[pointLightRef as any]}
-          selection={[sunMeshRef as any]}
-          intensity={2}
-          luminanceThreshold={0.4}
-          luminanceSmoothing={0.4}
-        />
-      </EffectComposer>
     </>
   );
 };
